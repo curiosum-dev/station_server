@@ -26,3 +26,5 @@ erl_crash.dump
 station_server-*.tar
 
 .vscode/
+
+*.secrets.exs
