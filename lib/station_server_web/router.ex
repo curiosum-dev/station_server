@@ -9,22 +9,22 @@ defmodule StationServerWeb.Router do
     plug :accepts, ["png", "image/*"]
   end
 
-  scope "/", StationServerWeb do
+  scope "/", StationServerWeb.Pages do
     pipe_through :api
 
-    get "/", PageController, :index
-    get "/bus", PageController, :bus
-    get "/news", PageController, :news
-    get "/todo", PageController, :todo
+    get "/", WeatherController, :index
+    get "/bus", BusController, :index
+    get "/news", NewsController, :index
+    get "/todo", TodoController, :index
   end
 
-  scope "/images", StationServerWeb do
+  scope "/images", StationServerWeb.Images do
     pipe_through :image
 
-    get "/weather.png", ImageController, :weather
-    get "/bus.png", ImageController, :bus
-    get "/news.png", ImageController, :news
-    get "/todo.png", ImageController, :todo
+    get "/weather.png", WeatherController, :show
+    get "/bus.png", BusController, :show
+    get "/news.png", NewsController, :show
+    get "/todo.png", TodoController, :show
   end
 
   # Enable LiveDashboard in development
