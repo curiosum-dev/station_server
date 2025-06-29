@@ -2,7 +2,7 @@ defmodule StationServerWeb.Images.WeatherController do
   use StationServerWeb, :controller
 
   import StationServerWeb.Links
-  import StationServerWeb.Images.SVG2PNG
+  alias StationServerWeb.SVG2PNG
 
   def show(conn, _params) do
     weather_data = get_weather_data()
@@ -15,7 +15,7 @@ defmodule StationServerWeb.Images.WeatherController do
       links: links("/")
     }
 
-    case render_svg_to_png("weather.svg.eex", assigns) do
+    case SVG2PNG.render_svg_to_png("weather.svg.eex", assigns) do
       {:ok, png_data} ->
         conn
         |> put_resp_content_type("image/png")

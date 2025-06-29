@@ -2,26 +2,17 @@ defmodule StationServerWeb.Images.NewsController do
   use StationServerWeb, :controller
 
   import StationServerWeb.Links
-  import StationServerWeb.Images.SVG2PNG
+  alias StationServerWeb.SVG2PNG
 
   def show(conn, _params) do
     news_data = get_news_data()
 
-    # Prepare news items with positioning
-    news_with_positions =
-      news_data.items
-      |> Enum.take(4)
-      |> Enum.with_index()
-      |> Enum.map(fn {item, index} ->
-        Map.put(item, :y_position, 90 + index * 80)
-      end)
-
     assigns = %{
-      news_items: news_with_positions,
+      news_items: news_data.items,
       links: links("/news")
     }
 
-    case render_svg_to_png("news.svg.eex", assigns) do
+    case SVG2PNG.render_svg_to_png("news.svg.eex", assigns) do
       {:ok, png_data} ->
         conn
         |> put_resp_content_type("image/png")
@@ -36,12 +27,18 @@ defmodule StationServerWeb.Images.NewsController do
   end
 
   defp get_news_data do
-    %{
-      items: [
-        %{headline: "Local Festival This Weekend", time_ago: "2h ago"},
-        %{headline: "New Bike Lanes Open Downtown", time_ago: "4h ago"},
-        %{headline: "Weather Alert: Rain Expected", time_ago: "6h ago"}
+    news_with_positions =
+      [
+        %{headline: "Local Election Results Announced", time_ago: "2h ago"},
+        %{headline: "New Park Opens Downtown", time_ago: "4h ago"},
+        %{headline: "Weather Alert: Heavy Rain Expected", time_ago: "6h ago"},
+        %{headline: "City Council Meeting Scheduled", time_ago: "8h ago"}
       ]
-    }
+      |> Enum.with_index()
+      |> Enum.map(fn {item, index} ->
+        Map.put(item, :y_position, 90 + index * 80)
+      end)
+
+    %{items: news_with_positions}
   end
 end
