@@ -5,12 +5,26 @@ defmodule StationServerWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :image do
+    plug :accepts, ["png", "image/*"]
+  end
+
   scope "/", StationServerWeb do
     pipe_through :api
 
     get "/", PageController, :index
     get "/bus", PageController, :bus
     get "/news", PageController, :news
+    get "/todo", PageController, :todo
+  end
+
+  scope "/images", StationServerWeb do
+    pipe_through :image
+
+    get "/weather.png", ImageController, :weather
+    get "/bus.png", ImageController, :bus
+    get "/news.png", ImageController, :news
+    get "/todo.png", ImageController, :todo
   end
 
   # Enable LiveDashboard in development

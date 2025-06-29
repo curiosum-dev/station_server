@@ -12,4 +12,8 @@ defmodule StationServerWeb.PageController do
   def news(conn, _params) do
     render(conn, :news)
   end
+
+  def todo(conn, _params) do
+    render(conn, :todo)
+  end
 end
