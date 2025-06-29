@@ -3,6 +3,7 @@ defmodule StationServerWeb.Images.WeatherController do
 
   import StationServerWeb.Links
   alias StationServerWeb.SVG2PNG
+  alias StationServerWeb.Images.WeatherPNG
 
   def show(conn, _params) do
     weather_data = get_weather_data()
@@ -15,7 +16,10 @@ defmodule StationServerWeb.Images.WeatherController do
       links: links("/")
     }
 
-    case SVG2PNG.render_svg_to_png("weather.svg.eex", assigns) do
+    # Render SVG using Phoenix's normal template rendering
+    svg_content = WeatherPNG.show(assigns)
+
+    case SVG2PNG.svg_to_png(svg_content) do
       {:ok, png_data} ->
         conn
         |> put_resp_content_type("image/png")

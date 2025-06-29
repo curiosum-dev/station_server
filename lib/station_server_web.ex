@@ -37,11 +37,20 @@ defmodule StationServerWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, formats: [:html, :json]
+      use Phoenix.Controller, formats: [:html, :json, :png]
 
       import Plug.Conn
 
       unquote(verified_routes())
+    end
+  end
+
+  def svg2png do
+    quote do
+      use Phoenix.Component
+
+      import Phoenix.Controller,
+        only: [get_csrf_token: 0, view_module: 1, view_template: 1]
     end
   end
 

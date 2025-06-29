@@ -3,6 +3,7 @@ defmodule StationServerWeb.Images.BusController do
 
   import StationServerWeb.Links
   alias StationServerWeb.SVG2PNG
+  alias StationServerWeb.Images.BusPNG
 
   def show(conn, _params) do
     bus_data = get_bus_data()
@@ -12,7 +13,10 @@ defmodule StationServerWeb.Images.BusController do
       links: links("/bus")
     }
 
-    case SVG2PNG.render_svg_to_png("bus.svg.eex", assigns) do
+    # Render SVG using Phoenix's normal template rendering
+    svg_content = BusPNG.show(assigns)
+
+    case SVG2PNG.svg_to_png(svg_content) do
       {:ok, png_data} ->
         conn
         |> put_resp_content_type("image/png")
