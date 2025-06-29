@@ -1,5 +1,5 @@
 defmodule StationServerWeb.Images.WeatherPNG do
   use StationServerWeb, :svg2png
 
-  embed_templates "templates/weather/*"
+  embed_svg2png_templates("templates/weather/*", [:show])
 end

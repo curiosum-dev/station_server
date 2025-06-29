@@ -2,8 +2,6 @@ defmodule StationServerWeb.Images.NewsController do
   use StationServerWeb, :controller
 
   import StationServerWeb.Links
-  alias StationServerWeb.SVG2PNG
-  alias StationServerWeb.Images.NewsPNG
 
   def show(conn, _params) do
     news_data = get_news_data()
@@ -13,21 +11,8 @@ defmodule StationServerWeb.Images.NewsController do
       links: links("/news")
     }
 
-    # Render SVG using Phoenix's normal template rendering
-    svg_content = NewsPNG.show(assigns)
-
-    case SVG2PNG.svg_to_png(svg_content) do
-      {:ok, png_data} ->
-        conn
-        |> put_resp_content_type("image/png")
-        |> put_resp_header("cache-control", "public, max-age=30")
-        |> send_resp(200, png_data)
-
-      {:error, reason} ->
-        conn
-        |> put_status(500)
-        |> json(%{error: "Failed to generate news image: #{reason}"})
-    end
+    conn
+    |> render(assigns)
   end
 
   defp get_news_data do
