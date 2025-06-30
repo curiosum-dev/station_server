@@ -24,12 +24,5 @@
     </text>
   </g>
 
-  <%= for {{link_text, _link_url}, index} <- Enum.with_index(@links) do %>
-    <g>
-      <rect width="<%= 600 / Enum.count(@links) %>" height="100" x="<%= index * (600 / Enum.count(@links)) %>" y="500" fill="#9ca3af" stroke="#000000" />
-      <text x="<%= (index + 0.5) * (600 / Enum.count(@links)) + 10 %>" y="560" fill="black" font-weight="bold" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">
-        <%= link_text %>
-      </text>
-    </g>
-  <% end %>
+  <%= navigation_bar(@links) %>
 </svg>
