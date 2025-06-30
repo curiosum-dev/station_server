@@ -1,11 +1,11 @@
 defmodule StationServerWeb.Images.TodoController do
   use StationServerWeb, :controller
 
-  import StationServerWeb.Links
+  alias StationServerWeb.AppModule
 
   def show(conn, _params) do
     assigns = %{
-      links: links("/todo")
+      links: AppModule.links(StationServerWeb.Modules.Todo)
     }
 
     conn

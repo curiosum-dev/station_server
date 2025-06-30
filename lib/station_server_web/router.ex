@@ -9,10 +9,12 @@ defmodule StationServerWeb.Router do
     plug :accepts, ["png", "image/*"]
   end
 
+  get "/", StationServerWeb.RootController, :index
+
   scope "/", StationServerWeb.Pages do
     pipe_through :api
 
-    get "/", WeatherController, :index
+    get "/weather", WeatherController, :index
     get "/bus", BusController, :index
     get "/news", NewsController, :index
     get "/todo", TodoController, :index

@@ -1,7 +1,7 @@
 defmodule StationServerWeb.Images.WeatherController do
   use StationServerWeb, :controller
 
-  import StationServerWeb.Links
+  alias StationServerWeb.AppModule
 
   def show(conn, _params) do
     weather_data = get_weather_data()
@@ -11,27 +11,11 @@ defmodule StationServerWeb.Images.WeatherController do
       condition: weather_data.condition,
       location: weather_data.location,
       updated_at: format_time(weather_data.updated_at),
-      links: links("/")
+      links: AppModule.links(StationServerWeb.Modules.Weather)
     }
 
     conn
     |> render(assigns)
-
-    # # Render SVG using Phoenix's normal template rendering
-    # svg_content = WeatherPNG.show(assigns)
-
-    # case SVG2PNG.svg_to_png(svg_content) do
-    #   {:ok, png_data} ->
-    #     conn
-    #     |> put_resp_content_type("image/png")
-    #     |> put_resp_header("cache-control", "public, max-age=30")
-    #     |> send_resp(200, png_data)
-
-    #   {:error, reason} ->
-    #     conn
-    #     |> put_status(500)
-    #     |> json(%{error: "Failed to generate weather image: #{reason}"})
-    # end
   end
 
   defp get_weather_data do

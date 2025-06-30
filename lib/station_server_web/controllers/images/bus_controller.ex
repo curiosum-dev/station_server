@@ -1,14 +1,14 @@
 defmodule StationServerWeb.Images.BusController do
   use StationServerWeb, :controller
 
-  import StationServerWeb.Links
+  alias StationServerWeb.AppModule
 
   def show(conn, _params) do
     bus_data = get_bus_data()
 
     assigns = %{
       routes: bus_data.routes,
-      links: links("/bus")
+      links: AppModule.links(StationServerWeb.Modules.Bus)
     }
 
     conn

@@ -1,14 +1,14 @@
 defmodule StationServerWeb.Images.NewsController do
   use StationServerWeb, :controller
 
-  import StationServerWeb.Links
+  alias StationServerWeb.AppModule
 
   def show(conn, _params) do
     news_data = get_news_data()
 
     assigns = %{
       news_items: news_data.items,
-      links: links("/news")
+      links: AppModule.links(StationServerWeb.Modules.News)
     }
 
     conn
