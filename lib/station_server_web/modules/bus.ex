@@ -2,7 +2,7 @@ defmodule StationServerWeb.Modules.Bus do
   @behaviour StationServerWeb.AppModule
 
   @impl true
-  def name, do: "MPK"
+  def name, do: "Tram&Bus"
 
   @impl true
   def path, do: "/bus"
