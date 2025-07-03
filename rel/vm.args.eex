@@ -1,0 +1,21 @@
+## Customize flags given to the VM: https://www.erlang.org/doc/man/erl.html
+## -mode/-name/-sname/-noshell/-noinput/-eval are configured separately by Nerves
+## Use Ctrl+] to exit the shell
+
+## Add custom flags here
+-setcookie <%= @release.options[:cookie] %>
+
+## Increase maximum number of atoms - for Phoenix applications
++t 512000
+
+## Configure scheduler bind type
++stbt db
+
+## Configure dirty IO scheduler threads
++SDio 5
+
+## Start heartbeat monitoring
+-heart
+
+# IEx configuration
+--dot-iex /etc/iex.exs

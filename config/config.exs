@@ -7,6 +7,11 @@
 # General application configuration
 import Config
 
+# Start nerves_bootstrap
+if Mix.target() != :host do
+  Application.start(:nerves_bootstrap)
+end
+
 config :station_server,
   generators: [timestamp_type: :utc_datetime]
 
@@ -32,3 +37,8 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+# Import target specific config for Nerves
+if Mix.target() != :host do
+  import_config "target.exs"
+end
