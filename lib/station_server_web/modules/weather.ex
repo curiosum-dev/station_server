@@ -2,7 +2,7 @@ defmodule StationServerWeb.Modules.Weather do
   @behaviour StationServerWeb.AppModule
 
   @impl true
-  def name, do: "Weather"
+  def name, do: "Pogoda"
 
   @impl true
   def path, do: "/weather"
@@ -10,7 +10,7 @@ defmodule StationServerWeb.Modules.Weather do
   @impl true
   def page_data do
     %{
-      refresh_every: 30_000
+      refresh_every: 15 * 60_000
     }
   end
 end

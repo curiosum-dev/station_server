@@ -68,6 +68,8 @@ config :mdns_lite,
     }
   ]
 
+config :nerves_time_zones, default_time_zone: "Europe/Warsaw"
+
 # Import secrets
 import_config "target.secrets.exs"
 

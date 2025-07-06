@@ -38,6 +38,8 @@ defmodule StationServer.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:resvg, "~> 0.5.0"},
+      # {:vix, "~> 0.33.1"},
+      {:req, "~> 0.5.14"},
 
       # Nerves deps - only for embedded targets
       {:nerves, "~> 1.10", runtime: false, targets: [:rpi4, :rpi3a]},
@@ -47,7 +49,8 @@ defmodule StationServer.MixProject do
       {:nerves_runtime, "~> 0.13.0", targets: [:rpi4, :rpi3a]},
       {:nerves_pack, "~> 0.7.0", targets: [:rpi4, :rpi3a]},
       {:nerves_system_rpi4, "~> 1.23", runtime: false, targets: :rpi4},
-      {:nerves_system_rpi3a, "~> 1.23", runtime: false, targets: :rpi3a}
+      {:nerves_system_rpi3a, "~> 1.23", runtime: false, targets: :rpi3a},
+      {:nerves_time_zones, "~> 0.3.2", targets: [:rpi4, :rpi3a]}
     ]
   end
 

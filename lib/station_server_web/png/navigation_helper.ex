@@ -26,7 +26,7 @@ defmodule StationServerWeb.PNG.NavigationHelper do
     |> Enum.join("\n    ")
   end
 
-  defp xml_escape(text) do
+  def xml_escape(text) do
     text
     |> String.replace("&", "&amp;")
     |> String.replace("<", "&lt;")
