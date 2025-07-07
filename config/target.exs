@@ -12,7 +12,7 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # configuring erlinit.
 config :nerves,
   erlinit: [
-    hostname_pattern: "station-server-%s"
+    hostname_pattern: "station_server-%s"
   ]
 
 # Configure the device for SSH IEx prompt access and firmware updates
@@ -45,8 +45,8 @@ config :mdns_lite,
   # The `hosts` key specifies what hostnames mdns_lite advertises.  `:hostname`
   # advertises the device's hostname.local. For the official Nerves systems, this
   # is "nerves-<4 digit serial#>.local".  The `"station_server"` example
-  # advertises "station-server.local".
-  hosts: [:hostname, "station-server"],
+  # advertises "station_server.local".
+  hosts: [:hostname, "station_server"],
   ttl: 120,
 
   # Advertise the following services over mDNS.

@@ -7,7 +7,7 @@ config :station_server, StationServerWeb.Endpoint,
   # Start the server since we're running in a release
   server: true,
   # Use HTTP instead of HTTPS for embedded deployment
-  url: [host: "station-server.local", port: 4000],
+  url: [host: "station_server.local", port: 4000],
   http: [
     # Listen on all interfaces
     ip: {0, 0, 0, 0},

@@ -42,15 +42,17 @@ defmodule StationServer.MixProject do
       {:req, "~> 0.5.14"},
 
       # Nerves deps - only for embedded targets
-      {:nerves, "~> 1.10", runtime: false, targets: [:rpi4, :rpi3a]},
-      {:shoehorn, "~> 0.9.1", targets: [:rpi4, :rpi3a]},
-      {:ring_logger, "~> 0.8.5", targets: [:rpi4, :rpi3a]},
-      {:toolshed, "~> 0.4.0", targets: [:rpi4, :rpi3a]},
-      {:nerves_runtime, "~> 0.13.0", targets: [:rpi4, :rpi3a]},
-      {:nerves_pack, "~> 0.7.0", targets: [:rpi4, :rpi3a]},
-      {:nerves_system_rpi4, "~> 1.23", runtime: false, targets: :rpi4},
-      {:nerves_system_rpi3a, "~> 1.23", runtime: false, targets: :rpi3a},
-      {:nerves_time_zones, "~> 0.3.2", targets: [:rpi4, :rpi3a]}
+      {:nerves, "~> 1.10", runtime: false},
+      {:shoehorn, "~> 0.9.1", targets: [:rpi]},
+      {:ring_logger, "~> 0.8.5", targets: [:rpi]},
+      {:toolshed, "~> 0.4.0", targets: [:rpi]},
+      {:nerves_runtime, "~> 0.13.0", targets: [:rpi]},
+      {:nerves_pack, "~> 0.7.0", targets: [:rpi]},
+      {:nerves_time_zones, "~> 0.3.2", targets: [:rpi]},
+
+      # Nerves System - use a GitHub repository or a local one, picked to match
+      # your hardware.
+      {:nerves_system_rpi3a, "~> 1.23", runtime: false, targets: :rpi}
     ]
   end
 
