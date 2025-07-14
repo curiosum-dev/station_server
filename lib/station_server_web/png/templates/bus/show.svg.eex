@@ -1,28 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
-  <!-- Background -->
-  <rect width="600" height="500" fill="#ffffff"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1.09091,0.00431638,9.9476e-14)">
+        <rect x="0" y="0" width="600" height="550" style="fill:white;stroke:black;stroke-width:0.96px;"/>
+    </g>
+    <%= for {route, index} <- @routes |> Enum.sort_by(fn route -> route[:route_id] |> String.to_integer() end) |> Enum.with_index() do %>
+        <g transform="matrix(0.8,0,0,0.8,-15,<%= 10 + index * 50 %>)">
+            <g transform="matrix(2.79466,0,0,0.340871,-252.285,72.3998)">
+                <path transform="matrix(1.5,0,0,1,-80,0)" d="M297.817,115.735L297.817,245.702C297.817,254.363 296.96,261.394 295.903,261.394L99.333,261.394C98.277,261.394 97.419,254.363 97.419,245.702L97.419,115.735C97.419,107.074 98.277,100.043 99.333,100.043L295.903,100.043C296.96,100.043 297.817,107.074 297.817,115.735Z" style="fill:rgb(235,235,235);"/>
+            </g>
+            <g transform="matrix(0.752596,0,0,0.752596,-129.563,-163.957)">
+                <circle cx="238.654" cy="395.907" r="26.004"/>
+            </g>
+            <g transform="matrix(2.17999,0,0,2.17999,14.807,-745.104)">
+                <text x="16px" y="406.886px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.092px;fill:white;text-anchor: middle;"><%= route[:route_id] %></text>
+            </g>
+            <g transform="matrix(1.56655,0,0,1.56655,-124.735,-46.3487)">
 
-  <!-- Header -->
-  <text x="50" y="70" fill="black" font-family="Arial, sans-serif" font-size="65" font-weight="bold">
-    Bus Schedule
-  </text>
+                <text x="129.853px" y="120.968px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-size:17.235px;"><tspan style="font-weight:700"><%= route[:headsign] %></tspan> <%= route[:departures] |> format_departures() %></text>
+            </g>
+        </g>
+    <% end %>
 
-  <!-- First Route Only - No Transforms -->
-  <g>
-    <!-- Route Number Circle -->
-    <circle cx="80" cy="150" r="35" fill="black"/>
-    <text x="80" y="160" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle">
-      42
-    </text>
+    <g transform="matrix(1,0,0,1,-14.1792,46.549)">
+        <text x="32.975px" y="41.108px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:27px;"><%= @current_stop.name %></text>
+    </g>
+    <%= for {stop, index} <- @stops |> Enum.with_index() do %>
 
-    <!-- Route Info -->
-    <text x="140" y="145" fill="black" font-family="Arial, sans-serif" font-size="46">
-      City Center
-    </text>
-    <text x="140" y="180" fill="#666666" font-family="Arial, sans-serif" font-size="36">
-      Next: 5 min
-    </text>
-  </g>
+        <g>
+            <rect x="<%= index * 600 / length(@stops) %>" y="0" width="<%= 600 / length(@stops) %>" height="54" style="fill:rgb(186,186,186);stroke:black;stroke-width:1.21px;"/>
+            <text x="<%= (index + 0.5) * 600 / length(@stops) %>" y="40" style="text-anchor: middle; font-family: 'Arial', sans-serif;font-weight:700;font-size:27px;"><%= stop.name %></text>
+        </g>
 
-  <%= navigation_bar(@links) %>
+    <% end %>
+    <g transform="matrix(1,0,0,1,47.9028,6.14568)">
+        <text x="462.898px" y="81.511px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:27px;"><%= @current_time %></text>
+    </g>
+
+    <%= navigation_bar(@links) %>
 </svg>

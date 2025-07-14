@@ -1,4 +1,4 @@
-defmodule StationServerWeb.External.Wttr do
+defmodule StationServerWeb.External.Weather.Wttr do
   @spec get_wttr_png_binary() :: binary() | no_return()
   def get_wttr_png_binary do
     Req.get!("https://pl.wttr.in/poznan.png?0pqn").body

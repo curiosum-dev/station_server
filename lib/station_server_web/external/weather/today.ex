@@ -1,4 +1,4 @@
-defmodule StationServerWeb.External.TodayWeather do
+defmodule StationServerWeb.External.Weather.Today do
   @openweather_api_key Application.compile_env(:station_server, :openweather_api_key)
 
   def get_today_weather_data do
