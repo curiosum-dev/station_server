@@ -22,7 +22,7 @@ defmodule StationServerWeb.Modules.Bus do
   @impl true
   def page_data do
     %{
-      refresh_every: 30_000
+      refresh_every: 60_000
     }
   end
 
