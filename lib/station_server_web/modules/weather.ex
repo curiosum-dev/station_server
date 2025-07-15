@@ -1,5 +1,5 @@
 defmodule StationServerWeb.Modules.Weather do
-  @behaviour StationServerWeb.AppModule
+  use StationServerWeb.AppModule
 
   @impl true
   def name, do: "Pogoda"
@@ -15,10 +15,5 @@ defmodule StationServerWeb.Modules.Weather do
     %{
       refresh_every: 15 * 60_000
     }
-  end
-
-  @impl true
-  def extra_links(_params) do
-    %{}
   end
 end

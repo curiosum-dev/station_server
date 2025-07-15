@@ -1,5 +1,5 @@
 defmodule StationServerWeb.Modules.Todo do
-  @behaviour StationServerWeb.AppModule
+  use StationServerWeb.AppModule
 
   @impl true
   def name, do: "Todo"
@@ -15,10 +15,5 @@ defmodule StationServerWeb.Modules.Todo do
     %{
       refresh_every: 30_000
     }
-  end
-
-  @impl true
-  def extra_links(_params) do
-    %{}
   end
 end

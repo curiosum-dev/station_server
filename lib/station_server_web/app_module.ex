@@ -7,6 +7,19 @@ defmodule StationServerWeb.AppModule do
   @callback extra_links(assigns :: map()) :: map()
   @callback image_path(assigns :: map()) :: String.t()
 
+  @optional_callbacks [extra_links: 1]
+
+  defmacro __using__(_opts) do
+    quote do
+      @behaviour StationServerWeb.AppModule
+
+      @impl true
+      def extra_links(_assigns), do: %{}
+
+      defoverridable extra_links: 1
+    end
+  end
+
   def modules do
     [
       StationServerWeb.Modules.Weather,

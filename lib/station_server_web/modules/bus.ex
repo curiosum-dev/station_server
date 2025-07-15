@@ -1,5 +1,5 @@
 defmodule StationServerWeb.Modules.Bus do
-  @behaviour StationServerWeb.AppModule
+  use StationServerWeb.AppModule
 
   @stops [
     %{name: "Os. Łokietka", id: "pl-Poznań_456"},
