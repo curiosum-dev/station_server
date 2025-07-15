@@ -1,27 +1,34 @@
 defmodule StationServerWeb.Images.BusController do
   use StationServerWeb, :controller
 
-  alias StationServerWeb.AppModule
+  alias StationServerWeb.{AppModule, Modules.Bus}
 
-  def show(conn, _params) do
-    bus_data = get_bus_data()
+  @default_stop %{name: "Os. Łokietka", id: "pl-Poznań_456"}
+
+  def show(conn, params) do
+    stop_name = params["stop_name"] || @default_stop.name
+    stop_id = params["stop_id"] || @default_stop.id
+
+    {:ok, routes} =
+      StationServerWeb.External.Transit.Departures.get_departures(stop_id, 50)
 
     assigns = %{
-      routes: bus_data.routes,
-      links: AppModule.links(StationServerWeb.Modules.Bus)
+      links: AppModule.navigation_links(StationServerWeb.Modules.Bus),
+      current_stop: %{name: stop_name, id: stop_id},
+      current_time:
+        NaiveDateTime.local_now()
+        |> NaiveDateTime.to_time()
+        |> to_string()
+        |> String.split(":")
+        |> Enum.take(2)
+        |> Enum.join(":"),
+      stops:
+        Bus.stops()
+        |> Enum.filter(fn stop -> stop.id != stop_id end),
+      routes: routes
     }
 
     conn
     |> render(assigns)
-  end
-
-  defp get_bus_data do
-    %{
-      routes: [
-        %{number: "42", destination: "City Center", next_arrival: 5},
-        %{number: "15", destination: "Airport", next_arrival: 12},
-        %{number: "8", destination: "University", next_arrival: 18}
-      ]
-    }
   end
 end

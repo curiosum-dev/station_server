@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!-- Background -->
+  <rect width="600" height="500" fill="#ffffff"/>
+
+  <!-- Header -->
+  <text x="50" y="70" fill="black" font-family="Arial, sans-serif" font-size="65" font-weight="bold">
+    Bus Schedule
+  </text>
+
+  <!-- First Route Only - No Transforms -->
+  <g>
+    <!-- Route Number Circle -->
+    <circle cx="80" cy="150" r="35" fill="black"/>
+    <text x="80" y="160" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle">
+      42
+    </text>
+
+    <!-- Route Info -->
+    <text x="140" y="145" fill="black" font-family="Arial, sans-serif" font-size="46">
+      City Center
+    </text>
+    <text x="140" y="180" fill="#666666" font-family="Arial, sans-serif" font-size="36">
+      Next: 5 min
+    </text>
+  </g>
+
+  <%= navigation_bar(@links) %>
+</svg>

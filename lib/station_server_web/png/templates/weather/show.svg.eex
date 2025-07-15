@@ -13,7 +13,7 @@
 
     <g transform="matrix(0.7,0,0,0.7,22,48)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@icon, "@4x")) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@icon, "@4x")) %>"
         />
     </g>
 
@@ -54,7 +54,7 @@
     </g>
     <g transform="matrix(1,0,0,1,46,393)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@today_weather |> Enum.at(0) |> Map.get(:icon))) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@today_weather |> Enum.at(0) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
@@ -66,7 +66,7 @@
     </g>
     <g transform="matrix(1,0,0,1,128,393)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@today_weather |> Enum.at(1) |> Map.get(:icon))) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@today_weather |> Enum.at(1) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
@@ -78,7 +78,7 @@
     </g>
     <g transform="matrix(1,0,0,1,208,393)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@today_weather |> Enum.at(2) |> Map.get(:icon))) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@today_weather |> Enum.at(2) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
@@ -94,7 +94,7 @@
 
     <g transform="matrix(0.8,0,0,0.8,320,364)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@next_days_weather |> Enum.at(1) |> Map.get(:icon))) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(1) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
@@ -107,7 +107,7 @@
     </g>
     <g transform="matrix(0.8,0,0,0.8,320,397)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@next_days_weather |> Enum.at(0) |> Map.get(:icon))) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(0) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
@@ -120,7 +120,7 @@
     </g>
     <g transform="matrix(0.8,0,0,0.8,320,432)">
         <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.WeatherIcon.get_weather_icon_binary(@next_days_weather |> Enum.at(2) |> Map.get(:icon))) %>"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(2) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>

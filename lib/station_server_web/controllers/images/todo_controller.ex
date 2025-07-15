@@ -5,7 +5,7 @@ defmodule StationServerWeb.Images.TodoController do
 
   def show(conn, _params) do
     assigns = %{
-      links: AppModule.links(StationServerWeb.Modules.Todo)
+      links: AppModule.navigation_links(StationServerWeb.Modules.Todo)
     }
 
     conn

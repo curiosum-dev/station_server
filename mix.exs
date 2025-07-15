@@ -14,7 +14,8 @@ defmodule StationServer.MixProject do
       deps: deps(),
       aliases: aliases(),
       releases: [{@app, release()}],
-      preferred_cli_target: [run: :host, test: :host]
+      preferred_cli_target: [run: :host, test: :host],
+      listeners: [Phoenix.CodeReloader]
     ]
   end
 
@@ -40,6 +41,7 @@ defmodule StationServer.MixProject do
       {:resvg, "~> 0.5.0"},
       # {:vix, "~> 0.33.1"},
       {:req, "~> 0.5.14"},
+      {:tzdata, "~> 1.1.3", targets: [:host]},
 
       # Nerves deps - only for embedded targets
       {:nerves, "~> 1.10", runtime: false},

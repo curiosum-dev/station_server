@@ -8,7 +8,7 @@ defmodule StationServerWeb.Images.NewsController do
 
     assigns = %{
       news_items: news_data.items,
-      links: AppModule.links(StationServerWeb.Modules.News)
+      links: AppModule.navigation_links(StationServerWeb.Modules.News)
     }
 
     conn
