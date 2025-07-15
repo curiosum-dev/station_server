@@ -36,6 +36,9 @@ config :phoenix, :json_library, Jason
 
 config :station_server, :openweather_api_key, System.get_env("OPENWEATHER_API_KEY")
 
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+config :station_server, :default_time_zone, "Europe/Warsaw"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

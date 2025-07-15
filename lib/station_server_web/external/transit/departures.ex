@@ -74,7 +74,6 @@ defmodule StationServerWeb.External.Transit.Departures do
               cancelled: departure["cancelled"]
             }
           end)
-          |> Enum.sort_by(& &1.departure_time)
 
         %{
           route_id: route_id,
@@ -84,12 +83,13 @@ defmodule StationServerWeb.External.Transit.Departures do
           realtime_departures: Enum.count(departure_list, & &1.is_realtime)
         }
       end)
-      |> Enum.sort_by(&first_departure_time/1)
 
-    {:ok, grouped}
+    {:ok,
+     grouped
+     |> Enum.sort_by(&first_departure_time/1, NaiveDateTime)}
   end
 
-  defp first_departure_time(routes) do
+  def first_departure_time(routes) do
     routes[:departures]
     |> hd()
     |> Map.get(:departure_time)

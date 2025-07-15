@@ -10,7 +10,7 @@ defmodule StationServerWeb.Images.WeatherController do
     assigns =
       current_weather_data
       |> Map.merge(%{
-        links: AppModule.links(StationServerWeb.Modules.Weather),
+        links: AppModule.navigation_links(StationServerWeb.Modules.Weather),
         today_weather: today_weather_data.today,
         next_days_weather: today_weather_data.next_days
       })
