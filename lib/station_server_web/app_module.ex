@@ -4,7 +4,13 @@ defmodule StationServerWeb.AppModule do
   @callback name() :: String.t()
   @callback path() :: String.t()
   @callback page_data() :: page_data()
-  @callback extra_links(assigns :: map()) :: map()
+  @callback extra_links(assigns :: map()) :: %{
+              required(String.t()) => %{
+                required(:begin) => {number(), number()},
+                required(:end) => {number(), number()},
+                required(:url) => String.t() | nil
+              }
+            }
   @callback image_path(assigns :: map()) :: String.t()
 
   @optional_callbacks [extra_links: 1]
@@ -62,8 +68,8 @@ defmodule StationServerWeb.AppModule do
 
       {{_link_text, link_url}, index} ->
         %{
-          begin: [index * link_width, 500],
-          end: [index * link_width + link_width, 600],
+          begin: {index * link_width, 500},
+          end: {index * link_width + link_width, 600},
           url: link_url
         }
     end)

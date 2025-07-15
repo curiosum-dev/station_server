@@ -36,8 +36,8 @@ defmodule StationServerWeb.Modules.Bus do
       x1 = index * (600 / Enum.count(stops))
       x2 = x1 + 600 / Enum.count(stops)
 
-      coords_begin = [x1, 0]
-      coords_end = [x2, 100]
+      coords_begin = {x1, 0}
+      coords_end = {x2, 100}
 
       {stop.name,
        %{
