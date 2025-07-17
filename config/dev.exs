@@ -13,8 +13,7 @@ config :station_server, StationServerWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "k847LA454C3fXTDeQhEuTKwBzYE90OhjR6pCjnvPrP3ItfWtvWf62eyrO7UTnwFE",
-  watchers: []
+  secret_key_base: "k847LA454C3fXTDeQhEuTKwBzYE90OhjR6pCjnvPrP3ItfWtvWf62eyrO7UTnwFE"
 
 # ## SSL Support
 #

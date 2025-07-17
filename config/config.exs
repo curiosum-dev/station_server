@@ -44,6 +44,8 @@ config :station_server, :default_time_zone, "Europe/Warsaw"
 import_config "#{config_env()}.exs"
 
 # Import target specific config for Nerves
+target = Mix.target()
+
 if Mix.target() != :host do
-  import_config "target.exs"
+  import_config "#{target}.exs"
 end

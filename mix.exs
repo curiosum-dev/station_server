@@ -13,10 +13,8 @@ defmodule StationServer.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
-      releases: [{@app, release()}],
-      preferred_cli_target: [run: :host, test: :host],
-      listeners: [Phoenix.CodeReloader]
-    ]
+      releases: [{@app, release()}]
+    ] ++ project_listeners()
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -39,9 +37,8 @@ defmodule StationServer.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:resvg, "~> 0.5.0"},
-      # {:vix, "~> 0.33.1"},
       {:req, "~> 0.5.14"},
-      {:tzdata, "~> 1.1.3", targets: [:host]},
+      {:tzdata, "~> 1.1.3"},
 
       # Nerves deps - only for embedded targets
       {:nerves, "~> 1.10", runtime: false},
@@ -73,10 +70,17 @@ defmodule StationServer.MixProject do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
+  # Only include listeners for host target, not for embedded targets
+  defp project_listeners do
+    case Mix.target() do
+      :host -> [listeners: [Phoenix.CodeReloader]]
+      _ -> []
+    end
+  end
+
   defp aliases do
     [
-      setup: ["deps.get"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      setup: ["deps.get"]
     ]
   end
 end

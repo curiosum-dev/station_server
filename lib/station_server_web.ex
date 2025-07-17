@@ -17,8 +17,6 @@ defmodule StationServerWeb do
   those modules here.
   """
 
-  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
-
   def router do
     quote do
       use Phoenix.Router, helpers: false
@@ -58,8 +56,7 @@ defmodule StationServerWeb do
     quote do
       use Phoenix.VerifiedRoutes,
         endpoint: StationServerWeb.Endpoint,
-        router: StationServerWeb.Router,
-        statics: StationServerWeb.static_paths()
+        router: StationServerWeb.Router
     end
   end
 

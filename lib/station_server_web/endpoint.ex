@@ -23,8 +23,7 @@ defmodule StationServerWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :station_server,
-    gzip: not code_reloading?,
-    only: StationServerWeb.static_paths()
+    gzip: not code_reloading?
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
