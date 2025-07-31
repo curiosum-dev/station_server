@@ -7,7 +7,7 @@
         <path d="M580,31.429L580,168.571C580,174.879 571.038,180 560,180L40,180C28.962,180 20,174.879 20,168.571L20,31.429C20,25.121 28.962,20 40,20L560,20C571.038,20 580,25.121 580,31.429Z" style="fill:rgb(238,238,238);"/>
     </g>
     <g transform="matrix(1,0,0,1,40,55)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;">BIEŻĄCA POGODA</text>
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= gettext("CURRENT WEATHER") %></text>
     </g>
 
 
@@ -27,27 +27,23 @@
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;fill:rgb(173,173,173);">Poznań</text>
     </g>
     <g transform="matrix(1.28624,0,0,1.28624,340,102.611)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;">OPADY</text>
-        <text x="65.156px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @precipitation %>mm</text>
+        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("PRECIPITATION") %></tspan> <%= @precipitation %>mm</text>
     </g>
     <g transform="matrix(1.28624,0,0,1.28624,340,142.513)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;">WILGOTNOŚĆ</text>
-        <text x="129.656px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @humidity %>%</text>
+        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("HUMIDITY") %></tspan> <%= @humidity %>%</text>
     </g>
     <g transform="matrix(1.28624,0,0,1.28624,340,185.503)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;">WIATR</text>
-        <text x="60.688px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @wind_speed %> km/h</text>
+        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("WIND") %></tspan> <%= @wind_speed %> km/h</text>
         <text x="144.047px" y="0px" style="font-family:'HiraginoSans-W4', 'Hiragino Sans', sans-serif;font-size:18px;"><%= @wind_direction %></text>
     </g>
     <g transform="matrix(1.28624,0,0,1.28624,340,227.503)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;">CIŚNIENIE</text>
-        <text x="95.688px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @pressure %> hPa</text>
+        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("PRESSURE") %></tspan> <%= @pressure %> hPa</text>
     </g>
     <g transform="matrix(1,0,0,1,0,119.847)">
         <path d="M290,220L290,340C290,351.038 281.038,360 270,360L40,360C28.962,360 20,351.038 20,340L20,220C20,208.962 28.962,200 40,200L270,200C281.038,200 290,208.962 290,220Z" style="fill:rgb(238,238,238);"/>
     </g>
     <g transform="matrix(1,0,0,1,40,349.847)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;">DZIŚ</text>
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= gettext("TODAY") %></text>
     </g>
     <g transform="matrix(1.17053,0,0,1.17053,49.7029,391.808)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @today_weather |> Enum.at(0) |> Map.get(:time) %></text>
@@ -89,7 +85,7 @@
         <path d="M580,220L580,340C580,351.038 571.038,360 560,360L330,360C318.962,360 310,351.038 310,340L310,220C310,208.962 318.962,200 330,200L560,200C571.038,200 580,208.962 580,220Z" style="fill:rgb(238,238,238);"/>
     </g>
     <g transform="matrix(1,0,0,1,330,349.847)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;">NAJBLIŻSZE DNI</text>
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= gettext("NEXT DAYS") %></text>
     </g>
 
     <g transform="matrix(0.8,0,0,0.8,320,364)">

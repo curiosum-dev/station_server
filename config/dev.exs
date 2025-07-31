@@ -50,3 +50,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Language configuration for development (defaults to English source text)
+config :station_server, :language, "en"

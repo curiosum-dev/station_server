@@ -4,7 +4,7 @@
 
   <!-- Header -->
   <text x="50" y="70" fill="black" font-family="Arial, sans-serif" font-size="65" font-weight="bold">
-    Latest News
+    <%= gettext("Latest News") %>
   </text>
 
   <!-- News Items -->

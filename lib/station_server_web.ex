@@ -49,6 +49,7 @@ defmodule StationServerWeb do
 
       import StationServerWeb.EmbedTemplates
       import StationServerWeb.PNG.NavigationHelper
+      use Gettext, backend: StationServerWeb.Gettext
     end
   end
 

@@ -4,7 +4,7 @@ defmodule StationServerWeb.External.Weather.Current do
   def get_current_weather_data do
     payload =
       Req.get!(
-        "https://api.openweathermap.org/data/2.5/weather?q=Poznan,PL&units=metric&lang=pl&appid=#{@openweather_api_key}"
+        "https://api.openweathermap.org/data/2.5/weather?q=Poznan,PL&units=metric&lang=#{StationServerWeb.Locale.get_locale()}&appid=#{@openweather_api_key}"
       ).body
 
     %{

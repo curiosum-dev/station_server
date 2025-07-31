@@ -1,0 +1,62 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new messages manually only if they're dynamic
+## messages that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here has no
+## effect: edit them in PO (.po) files instead.
+#
+msgid ""
+msgstr ""
+
+#: lib/station_server_web/png/templates/news/show.svg.eex:7
+#, elixir-autogen, elixir-format
+msgid "Latest News"
+msgstr ""
+
+#: lib/station_server_web/png/templates/todo/show.svg.eex:12
+#, elixir-autogen, elixir-format
+msgid "Not implemented yet"
+msgstr ""
+
+#: lib/station_server_web/png/templates/todo/show.svg.eex:7
+#, elixir-autogen, elixir-format
+msgid "Todo"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:10
+#, elixir-autogen, elixir-format
+msgid "CURRENT WEATHER"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:34
+#, elixir-autogen, elixir-format
+msgid "HUMIDITY"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:92
+#, elixir-autogen, elixir-format
+msgid "NEXT DAYS"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:30
+#, elixir-autogen, elixir-format
+msgid "PRECIPITATION"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:43
+#, elixir-autogen, elixir-format
+msgid "PRESSURE"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:50
+#, elixir-autogen, elixir-format
+msgid "TODAY"
+msgstr ""
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:38
+#, elixir-autogen, elixir-format
+msgid "WIND"
+msgstr ""

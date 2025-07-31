@@ -4,12 +4,12 @@
 
   <!-- Header -->
   <text x="50" y="70" fill="black" font-family="Arial, sans-serif" font-size="65" font-weight="bold">
-    Todo
+    <%= gettext("Todo") %>
   </text>
 
   <!-- Todo Items -->
   <text x="50" y="140" fill="#666666" font-family="Arial, sans-serif" font-size="40">
-    Not implemented yet
+    <%= gettext("Not implemented yet") %>
   </text>
 
   <%= navigation_bar(@links) %>

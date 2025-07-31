@@ -1,0 +1,62 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10||n%100>=20) ? 1 : 2);\n"
+
+#: lib/station_server_web/png/templates/news/show.svg.eex:7
+#, elixir-autogen, elixir-format
+msgid "Latest News"
+msgstr "Najnowsze Wiadomości"
+
+#: lib/station_server_web/png/templates/todo/show.svg.eex:12
+#, elixir-autogen, elixir-format
+msgid "Not implemented yet"
+msgstr "Jeszcze nie zaimplementowane"
+
+#: lib/station_server_web/png/templates/todo/show.svg.eex:7
+#, elixir-autogen, elixir-format
+msgid "Todo"
+msgstr "Zadania"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:10
+#, elixir-autogen, elixir-format
+msgid "CURRENT WEATHER"
+msgstr "BIEŻĄCA POGODA"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:34
+#, elixir-autogen, elixir-format
+msgid "HUMIDITY"
+msgstr "WILGOTNOŚĆ"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:92
+#, elixir-autogen, elixir-format
+msgid "NEXT DAYS"
+msgstr "NAJBLIŻSZE DNI"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:30
+#, elixir-autogen, elixir-format
+msgid "PRECIPITATION"
+msgstr "OPADY"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:43
+#, elixir-autogen, elixir-format
+msgid "PRESSURE"
+msgstr "CIŚNIENIE"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:50
+#, elixir-autogen, elixir-format
+msgid "TODAY"
+msgstr "DZIŚ"
+
+#: lib/station_server_web/png/templates/weather/show.svg.eex:38
+#, elixir-autogen, elixir-format
+msgid "WIND"
+msgstr "WIATR"

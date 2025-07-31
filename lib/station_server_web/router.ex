@@ -3,10 +3,12 @@ defmodule StationServerWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug StationServerWeb.Plugs.LocalePlug
   end
 
   pipeline :image do
     plug :accepts, ["png", "image/*"]
+    plug StationServerWeb.Plugs.LocalePlug
   end
 
   get "/", StationServerWeb.RootController, :index

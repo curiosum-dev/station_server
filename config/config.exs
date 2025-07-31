@@ -39,6 +39,14 @@ config :station_server, :openweather_api_key, System.get_env("OPENWEATHER_API_KE
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 config :station_server, :default_time_zone, "Europe/Warsaw"
 
+# Gettext configuration
+config :station_server, StationServerWeb.Gettext,
+  default_locale: "en",
+  locales: ~w(en pl)
+
+# Default language setting (configurable per environment)
+config :station_server, :language, "pl"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

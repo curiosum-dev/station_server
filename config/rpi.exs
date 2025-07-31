@@ -66,6 +66,11 @@ config :mdns_lite,
       protocol: "epmd",
       transport: "tcp",
       port: 4369
+    },
+    %{
+      protocol: "http",
+      transport: "tcp",
+      port: 4000
     }
   ]
 
@@ -97,6 +102,9 @@ config :station_server, StationServerWeb.Endpoint, live_dashboard: false
 config :logger,
   level: :info,
   backends: [RingLogger]
+
+# Language configuration for Raspberry Pi (can be changed per deployment)
+config :station_server, :language, "en"
 
 # For production-like behavior in embedded systems
 config :phoenix, :serve_endpoints, true

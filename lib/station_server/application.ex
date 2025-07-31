@@ -7,6 +7,9 @@ defmodule StationServer.Application do
 
   @impl true
   def start(_type, _args) do
+    # Initialize locale from configuration
+    StationServerWeb.Locale.init_locale()
+
     # Define children based on target
     children =
       [
