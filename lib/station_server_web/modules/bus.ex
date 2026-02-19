@@ -2,7 +2,7 @@ defmodule StationServerWeb.Modules.Bus do
   use StationServerWeb.AppModule
 
   @stops [
-    %{name: "Czarnucha", id: "pl-Poznań_4462"},
+    %{name: "Czarnucha", id: "pl-Poznań_4396"},
     %{name: "Os. Łokietka", id: "pl-Poznań_456"},
     %{name: "Rubież", id: "pl-Poznań_454"},
     %{name: "Naramowice", id: "pl-Poznań_4013"}

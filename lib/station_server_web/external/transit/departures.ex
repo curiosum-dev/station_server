@@ -3,7 +3,7 @@ defmodule StationServerWeb.External.Transit.Departures do
   Module for fetching transit departures using MOTIS API
   """
 
-  @motis_base_url "https://api.transitous.org/api/v1"
+  @motis_base_url "https://api.transitous.org/api/v5"
 
   @doc """
   Get departures for a specific stop using MOTIS API
@@ -34,6 +34,8 @@ defmodule StationServerWeb.External.Transit.Departures do
       "stopId" => stop_id,
       "n" => limit
     }
+
+    dbg()
 
     case Req.get(url, params: params) do
       {:ok, %{status: 200, body: body}} ->

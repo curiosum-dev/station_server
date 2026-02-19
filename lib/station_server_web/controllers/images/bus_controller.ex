@@ -3,7 +3,7 @@ defmodule StationServerWeb.Images.BusController do
 
   alias StationServerWeb.{AppModule, Modules.Bus}
 
-  @default_stop %{name: "Czarnucha", id: "pl-Poznań_4462"}
+  @default_stop %{name: "Czarnucha", id: "pl-Poznań_4396"}
 
   def show(conn, params) do
     stop_name = params["stop_name"] || @default_stop.name

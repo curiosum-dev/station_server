@@ -1,7 +1,7 @@
 defmodule StationServerWeb.Pages.BusController do
   use StationServerWeb, :controller
 
-  @default_stop %{name: "Czarnucha", id: "pl-Poznań_4462"}
+  @default_stop %{name: "Czarnucha", id: "pl-Poznań_4396"}
 
   def index(conn, params) do
     stop_name = params["stop_name"] || @default_stop.name
