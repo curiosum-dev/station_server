@@ -3,129 +3,133 @@
 <svg width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <rect width="600" height="500" fill="white"/>
 
-    <g transform="matrix(1,0,0,1.75,0,-15)">
-        <path d="M580,31.429L580,168.571C580,174.879 571.038,180 560,180L40,180C28.962,180 20,174.879 20,168.571L20,31.429C20,25.121 28.962,20 40,20L560,20C571.038,20 580,25.121 580,31.429Z" style="fill:rgb(238,238,238);"/>
-    </g>
-    <g transform="matrix(1,0,0,1,40,55)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= gettext("CURRENT WEATHER") %></text>
+    <!-- TOP LEFT: Clock -->
+    <defs>
+        <clipPath id="clock-clip">
+            <rect x="20" y="20" width="270" height="270" rx="20" ry="20"/>
+        </clipPath>
+    </defs>
+    <rect x="20" y="20" width="270" height="270" rx="20" ry="20" style="fill:rgb(238,238,238);"/>
+    <g clip-path="url(#clock-clip)">
+        <g transform="translate(155, 215) scale(1, 1.45)">
+            <text x="0" y="0" text-anchor="middle" style="font-family:'Archivo Narrow', 'Arial Narrow', sans-serif;font-weight:700;font-size:130px;"><%= @current_time %></text>
+        </g>
     </g>
 
-
-    <g transform="matrix(0.7,0,0,0.7,22,48)">
+    <!-- TOP RIGHT: Current weather -->
+    <rect x="310" y="20" width="270" height="270" rx="20" ry="20" style="fill:rgb(238,238,238);"/>
+    <g transform="matrix(1,0,0,1,325,52)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:20px;"><%= gettext("CURRENT WEATHER") %></text>
+    </g>
+    <g transform="matrix(0.55,0,0,0.55,312,44)">
         <image
             xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@icon, "@4x")) %>"
         />
     </g>
-
-    <g transform="matrix(3.09814,0,0,3.09814,55.8542,210.54)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @temperature %>°c</text>
+    <g transform="matrix(1,0,0,1,390,108)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:50px;"><%= @temperature %>°c</text>
     </g>
-    <g transform="matrix(1.37533,0,0,1.37533,56.904,244.583)">
+    <g transform="matrix(1,0,0,1,392,135)">
         <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;"><%= @desc %></text>
     </g>
-    <g transform="matrix(1.08136,0,0,1.08136,57.2669,269.76)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;fill:rgb(173,173,173);">Poznań</text>
+    <g transform="matrix(1,0,0,1,325,175)">
+        <text x="0px" y="0px" style="font-family:'Arial', sans-serif;font-size:18px;"><tspan style="font-weight:700"><%= gettext("PRECIPITATION") %></tspan> <%= @precipitation %>mm</text>
     </g>
-    <g transform="matrix(1.28624,0,0,1.28624,340,102.611)">
-        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("PRECIPITATION") %></tspan> <%= @precipitation %>mm</text>
+    <g transform="matrix(1,0,0,1,325,202)">
+        <text x="0px" y="0px" style="font-family:'Arial', sans-serif;font-size:18px;"><tspan style="font-weight:700"><%= gettext("HUMIDITY") %></tspan> <%= @humidity %>%</text>
     </g>
-    <g transform="matrix(1.28624,0,0,1.28624,340,142.513)">
-        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("HUMIDITY") %></tspan> <%= @humidity %>%</text>
+    <g transform="matrix(1,0,0,1,325,229)">
+        <text x="0px" y="0px" style="font-family:'Arial', sans-serif;font-size:18px;"><tspan style="font-weight:700"><%= gettext("WIND") %></tspan> <%= @wind_speed %> km/h <%= @wind_direction %></text>
     </g>
-    <g transform="matrix(1.28624,0,0,1.28624,340,185.503)">
-        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("WIND") %></tspan> <%= @wind_speed %> km/h</text>
-        <text x="144.047px" y="0px" style="font-family:'HiraginoSans-W4', 'Hiragino Sans', sans-serif;font-size:18px;"><%= @wind_direction %></text>
+    <g transform="matrix(1,0,0,1,325,256)">
+        <text x="0px" y="0px" style="font-family:'Arial', sans-serif;font-size:18px;"><tspan style="font-weight:700"><%= gettext("PRESSURE") %></tspan> <%= @pressure %> hPa</text>
     </g>
-    <g transform="matrix(1.28624,0,0,1.28624,340,227.503)">
-        <text x="0px" y="0px" style="font-family: 'Arial', sans-serif;font-weight:400;font-size:18px;"><tspan style="font-weight: 700"><%= gettext("PRESSURE") %></tspan> <%= @pressure %> hPa</text>
+
+    <!-- BOTTOM LEFT: Today forecast -->
+    <rect x="20" y="310" width="270" height="180" rx="20" ry="20" style="fill:rgb(238,238,238);"/>
+    <g transform="matrix(1,0,0,1,40,338)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:20px;"><%= gettext("TODAY") %></text>
     </g>
-    <g transform="matrix(1,0,0,1,0,119.847)">
-        <path d="M290,220L290,340C290,351.038 281.038,360 270,360L40,360C28.962,360 20,351.038 20,340L20,220C20,208.962 28.962,200 40,200L270,200C281.038,200 290,208.962 290,220Z" style="fill:rgb(238,238,238);"/>
+    <!-- Slot 0 -->
+    <g transform="matrix(1,0,0,1,45,358)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= @today_weather |> Enum.at(0) |> Map.get(:time) %></text>
     </g>
-    <g transform="matrix(1,0,0,1,40,349.847)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= gettext("TODAY") %></text>
-    </g>
-    <g transform="matrix(1.17053,0,0,1.17053,49.7029,391.808)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @today_weather |> Enum.at(0) |> Map.get(:time) %></text>
-    </g>
-    <g transform="matrix(1,0,0,1,46,393)">
-        <image
+    <g transform="matrix(1,0,0,1,22,355)">
+        <image width="85" height="85"
             xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@today_weather |> Enum.at(0) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
-    <g transform="matrix(1.17053,0,0,1.17053,59.4872,462.04)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @today_weather |> Enum.at(0) |> Map.get(:temperature) %></text>
+    <g transform="matrix(1,0,0,1,38,468)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;"><%= @today_weather |> Enum.at(0) |> Map.get(:temperature) %></text>
     </g>
-    <g transform="matrix(1.17053,0,0,1.17053,131.64,391.808)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @today_weather |> Enum.at(1) |> Map.get(:time) %></text>
+    <!-- Slot 1 -->
+    <g transform="matrix(1,0,0,1,135,358)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= @today_weather |> Enum.at(1) |> Map.get(:time) %></text>
     </g>
-    <g transform="matrix(1,0,0,1,128,393)">
-        <image
+    <g transform="matrix(1,0,0,1,112,355)">
+        <image width="85" height="85"
             xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@today_weather |> Enum.at(1) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
-    <g transform="matrix(1.17053,0,0,1.17053,141.813,462.04)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @today_weather |> Enum.at(1) |> Map.get(:temperature) %></text>
+    <g transform="matrix(1,0,0,1,128,468)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;"><%= @today_weather |> Enum.at(1) |> Map.get(:temperature) %></text>
     </g>
-    <g transform="matrix(1.17053,0,0,1.17053,213.577,391.808)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @today_weather |> Enum.at(2) |> Map.get(:time) %></text>
+    <!-- Slot 2 -->
+    <g transform="matrix(1,0,0,1,225,358)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= @today_weather |> Enum.at(2) |> Map.get(:time) %></text>
     </g>
-    <g transform="matrix(1,0,0,1,208,393)">
-        <image
+    <g transform="matrix(1,0,0,1,202,355)">
+        <image width="85" height="85"
             xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@today_weather |> Enum.at(2) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
-    <g transform="matrix(1.17053,0,0,1.17053,222.422,462.04)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @today_weather |> Enum.at(2) |> Map.get(:temperature) %></text>
-    </g>
-    <g transform="matrix(1,0,0,1,0,119.847)">
-        <path d="M580,220L580,340C580,351.038 571.038,360 560,360L330,360C318.962,360 310,351.038 310,340L310,220C310,208.962 318.962,200 330,200L560,200C571.038,200 580,208.962 580,220Z" style="fill:rgb(238,238,238);"/>
-    </g>
-    <g transform="matrix(1,0,0,1,330,349.847)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:22px;"><%= gettext("NEXT DAYS") %></text>
+    <g transform="matrix(1,0,0,1,218,468)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:30px;"><%= @today_weather |> Enum.at(2) |> Map.get(:temperature) %></text>
     </g>
 
-    <g transform="matrix(0.8,0,0,0.8,320,364)">
-        <image
-            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(1) |> Map.get(:icon))) %>"
-            style="filter: invert(1)"
-        />
+    <!-- BOTTOM RIGHT: Next days forecast -->
+    <rect x="310" y="310" width="270" height="180" rx="20" ry="20" style="fill:rgb(238,238,238);"/>
+    <g transform="matrix(1,0,0,1,330,338)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:20px;"><%= gettext("NEXT DAYS") %></text>
     </g>
-    <g transform="matrix(1.0977,0,0,1.0977,362.931,391.157)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @next_days_weather |> Enum.at(0) |> Map.get(:day_of_week) %></text>
-    </g>
-    <g transform="matrix(1.0977,0,0,1.0977,428.793,391.157)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @next_days_weather |> Enum.at(0) |> Map.get(:max_temp) %></text>
-        <text x="22.242px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @next_days_weather |> Enum.at(0) |> Map.get(:min_temp) %></text>
-    </g>
-    <g transform="matrix(0.8,0,0,0.8,320,397)">
-        <image
+    <!-- Day 0 -->
+    <g transform="matrix(1,0,0,1,318,350)">
+        <image width="48" height="48"
             xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(0) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
-    <g transform="matrix(1.0977,0,0,1.0977,362.931,424.088)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @next_days_weather |> Enum.at(1) |> Map.get(:day_of_week) %></text>
+    <g transform="matrix(1,0,0,1,372,383)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:24px;"><%= @next_days_weather |> Enum.at(0) |> Map.get(:day_of_week) %></text>
+        <text x="60px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:24px;"><%= @next_days_weather |> Enum.at(0) |> Map.get(:max_temp) %></text>
+        <text x="95px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:rgb(130,130,130);"><%= @next_days_weather |> Enum.at(0) |> Map.get(:min_temp) %></text>
     </g>
-    <g transform="matrix(1.0977,0,0,1.0977,428.793,424.088)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @next_days_weather |> Enum.at(1) |> Map.get(:max_temp) %></text>
-        <text x="22.242px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @next_days_weather |> Enum.at(1) |> Map.get(:min_temp) %></text>
+    <!-- Day 1 -->
+    <g transform="matrix(1,0,0,1,318,385)">
+        <image width="48" height="48"
+            xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(1) |> Map.get(:icon))) %>"
+            style="filter: invert(1)"
+        />
     </g>
-    <g transform="matrix(0.8,0,0,0.8,320,432)">
-        <image
+    <g transform="matrix(1,0,0,1,372,418)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:24px;"><%= @next_days_weather |> Enum.at(1) |> Map.get(:day_of_week) %></text>
+        <text x="60px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:24px;"><%= @next_days_weather |> Enum.at(1) |> Map.get(:max_temp) %></text>
+        <text x="95px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:rgb(130,130,130);"><%= @next_days_weather |> Enum.at(1) |> Map.get(:min_temp) %></text>
+    </g>
+    <!-- Day 2 -->
+    <g transform="matrix(1,0,0,1,318,420)">
+        <image width="48" height="48"
             xlink:href="data:image/png;base64,<%= Base.encode64(StationServerWeb.External.Weather.Icon.get_weather_icon_binary(@next_days_weather |> Enum.at(2) |> Map.get(:icon))) %>"
             style="filter: invert(1)"
         />
     </g>
-    <g transform="matrix(1.0977,0,0,1.0977,362.931,457.019)">
-        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @next_days_weather |> Enum.at(2) |> Map.get(:day_of_week) %></text>
-    </g>
-    <g transform="matrix(1.0977,0,0,1.0977,428.793,457.019)">
-        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;"><%= @next_days_weather |> Enum.at(2) |> Map.get(:max_temp) %></text>
-        <text x="22.242px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:18px;"><%= @next_days_weather |> Enum.at(2) |> Map.get(:min_temp) %></text>
+    <g transform="matrix(1,0,0,1,372,453)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:24px;"><%= @next_days_weather |> Enum.at(2) |> Map.get(:day_of_week) %></text>
+        <text x="60px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:24px;"><%= @next_days_weather |> Enum.at(2) |> Map.get(:max_temp) %></text>
+        <text x="95px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:rgb(130,130,130);"><%= @next_days_weather |> Enum.at(2) |> Map.get(:min_temp) %></text>
     </g>
 
     <%= navigation_bar(@links) %>

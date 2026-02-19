@@ -22,16 +22,16 @@ defmodule StationServerWeb.External.Weather.Current do
 
   defp wind_direction(deg) do
     case deg do
-      d when d >= 0 and d <= 22.5 -> "⬆️"
-      d when d >= 22.5 and d <= 67.5 -> "↗️"
-      d when d >= 67.5 and d <= 112.5 -> "➡️"
-      d when d >= 112.5 and d <= 157.5 -> "↘️"
-      d when d >= 157.5 and d <= 202.5 -> "⬇️"
-      d when d >= 202.5 and d <= 247.5 -> "↙️"
-      d when d >= 247.5 and d <= 292.5 -> "⬅️"
-      d when d >= 292.5 and d <= 337.5 -> "↖️"
-      d when d >= 337.5 and d <= 360 -> "⬆️"
-      _ -> "⬆️"
+      d when d >= 0 and d <= 22.5 -> "N"
+      d when d >= 22.5 and d <= 67.5 -> "NE"
+      d when d >= 67.5 and d <= 112.5 -> "E"
+      d when d >= 112.5 and d <= 157.5 -> "SE"
+      d when d >= 157.5 and d <= 202.5 -> "S"
+      d when d >= 202.5 and d <= 247.5 -> "SW"
+      d when d >= 247.5 and d <= 292.5 -> "W"
+      d when d >= 292.5 and d <= 337.5 -> "NW"
+      d when d >= 337.5 and d <= 360 -> "N"
+      _ -> "N"
     end
   end
 end

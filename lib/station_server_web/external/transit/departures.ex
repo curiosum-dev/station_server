@@ -35,7 +35,6 @@ defmodule StationServerWeb.External.Transit.Departures do
       "n" => limit
     }
 
-    dbg()
 
     case Req.get(url, params: params) do
       {:ok, %{status: 200, body: body}} ->
