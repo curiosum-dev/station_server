@@ -34,8 +34,6 @@ config :logger, :default_formatter,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :station_server, :openweather_api_key, System.get_env("OPENWEATHER_API_KEY")
-
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 config :station_server, :default_time_zone, "Europe/Warsaw"
 
