@@ -55,3 +55,7 @@ target = Mix.target()
 if Mix.target() != :host do
   import_config "#{target}.exs"
 end
+
+config :station_server,
+  openweather_api_key: System.get_env("OPENWEATHER_API_KEY"),
+  hf_token: System.get_env("HF_TOKEN")
