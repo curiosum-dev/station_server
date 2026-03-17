@@ -41,6 +41,8 @@ defmodule StationServer.MixProject do
       {:tzdata, "~> 1.1.3"},
       {:gettext, "~> 0.26"},
       {:bumblebee, "~> 0.6"},
+      {:nx, "~> 0.9.0"},
+      {:exla, "~> 0.9.0"},
 
       # Nerves deps - only for embedded targets
       {:nerves, "~> 1.10", runtime: false},
